@@ -2,8 +2,9 @@
 
 Real-time instance segmentation using yolov7-mask
 
-[![Real-time instance segmentation using yolov7-mask](https://img.youtube.com/vi/bQS_VNC3jEM/0.jpg)](https://www.youtube.com/watch?v=bQS_VNC3jEM)
+<!-- [![Real-time instance segmentation using yolov7-mask](https://img.youtube.com/vi/bQS_VNC3jEM/0.jpg)](https://www.youtube.com/watch?v=bQS_VNC3jEM) -->
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/bQS_VNC3jEM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Prerequisites
 
