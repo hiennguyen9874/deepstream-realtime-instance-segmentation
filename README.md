@@ -12,7 +12,7 @@ Real-time instance segmentation using yolov7-mask
 
 ## Install
 
-- Export `yolov7-mask-nms.trt` from [github.com/hiennguyen9874/yolov7-mask](https://github.com/hiennguyen9874/yolov7-mask)
+- Export `yolov7-mask-nms.trt` from [github.com/hiennguyen9874/yolov7-mask](https://github.com/hiennguyen9874/yolov7-mask) and copy into `models` folder
 - Build `libnvds_infercustomparser.so`
   - `cd nvdsinfer_customparser`
   - `make`
