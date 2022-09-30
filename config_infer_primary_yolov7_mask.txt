@@ -41,7 +41,7 @@ maintain-aspect-ratio=1
 
 symmetric-padding=1
 
-parse-bbox-instance-mask-func-name=NvDsInferParseCustomBatchedNMSTLTMask
+parse-bbox-instance-mask-func-name=NvDsInferParseCustomEfficientNMSTLTMask
 custom-lib-path=./nvdsinfer_customparser/libnvds_infercustomparser.so
 
 output-instance-mask=1
