@@ -35,7 +35,7 @@ extern "C" bool NvDsInferParseCustomBatchedNMSTLTMask(
   int *p_keep_count = (int *)outputLayersInfo[0].buffer;
   float *p_bboxes = (float *)outputLayersInfo[1].buffer;
   float *p_scores = (float *)outputLayersInfo[2].buffer;
-  float *p_classes = (float *)outputLayersInfo[3].buffer;
+  int *p_classes = (int *)outputLayersInfo[3].buffer;
   float *p_mask = (float *)outputLayersInfo[4].buffer;
 
   const float threshold = detectionParams.perClassThreshold[0];
@@ -55,12 +55,6 @@ extern "C" bool NvDsInferParseCustomBatchedNMSTLTMask(
     if ((unsigned int)p_classes[i] >= detectionParams.numClassesConfigured)
       continue;
 
-    if (p_scores[i] < 0.0)
-      std::cout << "label/conf/ x/y x/y -- " << p_classes[i] << " "
-                << p_scores[i] << " " << p_bboxes[4 * i] << " "
-                << p_bboxes[4 * i + 1] << " " << p_bboxes[4 * i + 2] << " "
-                << p_bboxes[4 * i + 3] << " " << std::endl;
-
     if (p_scores[i] < threshold)
       continue;
 
@@ -74,6 +68,8 @@ extern "C" bool NvDsInferParseCustomBatchedNMSTLTMask(
     if (p_bboxes[4 * i + 2] < p_bboxes[4 * i] ||
         p_bboxes[4 * i + 3] < p_bboxes[4 * i + 1])
       continue;
+
+    std::cout << p_classes[i] << std::endl;
 
     NvDsInferInstanceMaskInfo object;
     object.classId = (int)p_classes[i];
