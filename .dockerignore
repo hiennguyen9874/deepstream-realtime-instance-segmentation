@@ -1,3 +1,15 @@
+# Ignore all
+*
+
+# Unignore all with extensions
+!*.*
+
+# Unignore all dirs
+!*/
+
+# Unignore Makefile
+!Makefile
+
 ### Above combination will ignore all files without extension ###
 
 # Prerequisites
@@ -242,17 +254,16 @@ cython_debug/
 #.idea/
 
 outputs/*
-*.trt
-*.engine
+.trt
+.engine
 *.onnx
 *.bin
 *.mp4
+
 logs/*
 bin/*
 backup/
 .vscode
-faiss.index
-labels.txt
 faiss_xx/
 tris/
 logs/

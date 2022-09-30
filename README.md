@@ -20,3 +20,26 @@ Youtube link:
 ## Run
 
 - `bash ./run.sh`
+
+## Docker
+
+### Get cuda version number
+
+- `docker run -v ${PWD}:/app/ -w /app --rm --gpus all -it nvcr.io/nvidia/deepstream:6.0.1-devel bash -c 'nvcc deviceQuery.cpp -o deviceQuery && ./deviceQuery'`
+
+- Modify DGPU_ARCHS in docker compose
+
+- Example (DGPU_ARCHS=75):
+  <div align="center">
+      <a href="./">
+          <img src="./DGPU_ARCHS.png" width="50%"/>
+      </a>
+  </div>
+
+### Run
+
+- build: `docker-compose build`
+
+- up: `docker-compose up`
+
+- Output video in `outputs` folder
