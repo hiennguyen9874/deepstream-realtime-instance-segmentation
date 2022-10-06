@@ -1,23 +1,39 @@
 # Deepstream real-time instance segmentation
 
-Real-time instance segmentation using yolov7-mask
+Real-time instance segmentation
 
 Youtube link:
-[![Real-time instance segmentation using yolov7-mask](https://img.youtube.com/vi/bQS_VNC3jEM/0.jpg)](https://www.youtube.com/watch?v=bQS_VNC3jEM)
+[![Real-time instance segmentation](https://img.youtube.com/vi/bQS_VNC3jEM/0.jpg)](https://www.youtube.com/watch?v=bQS_VNC3jEM)
+
+## Support model
+
+- YOLOv5-Seg
+- YOLOv7-Seg
+- YOLOv7-Mask
 
 ## Prerequisites
 
 - Deepstream 6.0.1
-- [github.com/hiennguyen9874/TensorRT](https://github.com/hiennguyen9874/TensorRT)
+- TensorRT-OSS: [github.com/hiennguyen9874/TensorRT](https://github.com/hiennguyen9874/TensorRT)
 
-## Install
+## Getting started
 
-- Export `yolov7-mask-nms.trt` from [github.com/hiennguyen9874/yolov7-mask](https://github.com/hiennguyen9874/yolov7-mask) and copy into `models` folder
-- Build `libnvds_infercustomparser.so`
-  - `cd nvdsinfer_customparser`
-  - `make`
+### Convert model to engine file
 
-## Run
+- Download model from [github.com/hiennguyen9874/deepstream-yolov7-mask/releases/tag/v0.1](https://github.com/hiennguyen9874/deepstream-yolov7-mask/releases/tag/v0.1) or export onnx file from weight:
+
+  - [github.com/hiennguyen9874/yolov5-seg](https://github.com/hiennguyen9874/yolov5-seg)
+  - [github.com/hiennguyen9874/yolov7-seg](https://github.com/hiennguyen9874/yolov7-seg)
+  - [github.com/hiennguyen9874/yolov7-mask](https://github.com/hiennguyen9874/yolov7-mask)
+
+- Export onnx to tensorRT: `/usr/src/tensorrt/bin/trtexec --onnx=./models/yolov7-seg-dev.onnx --saveEngine=./models/yolov7-seg-dev.trt --fp16 --workspace=8192`
+
+### Build custom parser
+
+- `cd nvdsinfer_customparser`
+- `make`
+
+### Run
 
 - `bash ./run.sh`
 
@@ -43,3 +59,25 @@ Youtube link:
 - up: `docker-compose up`
 
 - Output video in `outputs` folder
+
+## Benchmark
+
+Test on T4
+
+<div align="center">
+    <a href="./">
+        <img src="./plot.png" width="75%"/>
+    </a>
+</div>
+
+| Model          | FPS    | mAP<sup>val<br>0.5:0.95 (Box) | mAP<sup>val<br>0.5:0.95 (Mask) |
+| -------------- | ------ | ----------------------------- | ------------------------------ |
+| YOLOv5n        | 247.97 | 0.27                          | 0.234                          |
+| YOLOv5s        | 183.77 | 0.372                         | 0.317                          |
+| YOLOv5m        | 119.58 | 0.445                         | 0.373                          |
+| YOLOv5l        | 85.80  | 0.484                         | 0.401                          |
+| YOLOv5x        | 54.04  | 0.502                         | 0.415                          |
+| YOLOv7-Seg     | 84.12  | 0.49                          | 0.406                          |
+| YOLOv7-Seg-Dev | 84.59  | 0.505                         | 0.414                          |
+| YOLOv7x-Seg    | 60.29  | 0.511                         | 0.421                          |
+| YOLOv7-Mask    | 62.33  |                               |                                |

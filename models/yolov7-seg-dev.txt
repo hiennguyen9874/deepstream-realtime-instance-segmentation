@@ -6,9 +6,8 @@ net-scale-factor=0.0039215697906911373
 # 0:RGB 1:BGR 2:GRAY
 model-color-format=0
 
-model-engine-file=./models/yolov7-mask-nms.trt
-#model-engine-file=./models/yolov7-seg-nms.trt
-labelfile-path=labels_pgie.txt
+model-engine-file=./yolov7-seg-dev.trt
+labelfile-path=labels.txt
 
 batch-size=1
 
@@ -42,7 +41,7 @@ maintain-aspect-ratio=1
 symmetric-padding=1
 
 parse-bbox-instance-mask-func-name=NvDsInferParseCustomEfficientNMSTLTMask
-custom-lib-path=./nvdsinfer_customparser/libnvds_infercustomparser.so
+custom-lib-path=../nvdsinfer_customparser/libnvds_infercustomparser.so
 
 output-instance-mask=1
 
