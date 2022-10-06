@@ -9,7 +9,6 @@ Youtube link:
 
 - YOLOv5-Seg
 - YOLOv7-Seg
-- YOLOv7-Mask
 
 ## Prerequisites
 
@@ -24,7 +23,6 @@ Youtube link:
 
   - [github.com/hiennguyen9874/yolov5-seg](https://github.com/hiennguyen9874/yolov5-seg)
   - [github.com/hiennguyen9874/yolov7-seg](https://github.com/hiennguyen9874/yolov7-seg)
-  - [github.com/hiennguyen9874/yolov7-mask](https://github.com/hiennguyen9874/yolov7-mask)
 
 - Export onnx to tensorRT: `/usr/src/tensorrt/bin/trtexec --onnx=./models/yolov7-seg-dev.onnx --saveEngine=./models/yolov7-seg-dev.trt --fp16 --workspace=8192`
 
@@ -80,4 +78,3 @@ Test on T4
 | YOLOv7-Seg     | 84.12  | 0.49                          | 0.406                          |
 | YOLOv7-Seg-Dev | 84.59  | 0.505                         | 0.414                          |
 | YOLOv7x-Seg    | 60.29  | 0.511                         | 0.421                          |
-| YOLOv7-Mask    | 62.33  |                               |                                |
