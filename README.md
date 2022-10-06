@@ -3,7 +3,7 @@
 Real-time instance segmentation
 
 Youtube link:
-[![Real-time instance segmentation](https://img.youtube.com/vi/bQS_VNC3jEM/0.jpg)](https://www.youtube.com/watch?v=bQS_VNC3jEM)
+[![Real-time instance segmentation](https://img.youtube.com/vi/8vpyLASirvU/0.jpg)](https://www.youtube.com/watch?v=8vpyLASirvU)
 
 ## Support model
 
